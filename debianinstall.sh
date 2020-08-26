@@ -1,52 +1,103 @@
-echo initial setup
+echo	
+echo	
+echo	Initial setup
+echo
+echo
+echo 	llllllllllll
+echo	llUPDATINGll
+echo	llUPGRADESll
+echo	llllllllllll
+echo
+echo
 
-sudo su
+sudo apt update
 
-apt update
+sudo apt upgrade
 
-apt upgrade
+sudo apt install git
 
-apt install git
+sudo rm -r /setup
+sudo mkdir /setup
+sudo rm -r /termite
+sudo mkdir /termite
+sudo git clone --recursive https://github.com/thestinger/termite.git /termite
 
-mkdir /setup
+sudo git clone --recursive https://github.com/boozedawg/dotfiles.git /setup
 
-git clone --recursive https://github.com/thestinger/termite.git /setup
+sudo mv /home/pi/.bashrc /home/pi/.bashrc2
+sudo cp /setup/.bashrc /home/pi/.bashrc
 
-git clone https://github.com/boozedawg/dotfiles.git /setup
+sudo rm -r /home/pi/.config/sh
+sudo mv /setup/sh /home/pi/.config/
 
-mv /setup/bashrc ~/.bashrc
+sudo rm -r /home/pi/.config/termite
+sudo mv /setup/termite /home/pi/.config/
 
-mv /setup/sh ~/.config
+sleep 3
 
-mv /setup/termite ~/.config
+echo INSTALLING COMMON APPLICATIONS
+echo
 
-echo install my commonly used applications
 
+sleep 3
+echo
+echo
+echo INSTALLING
 echo neofetch neovim gparted openvpn network-manager ntfs-3g
-apt install neofetch neovim gparted openvpn network-manager ntfs-3g
+echo
+echo
 
+sudo apt install neofetch neovim gparted openvpn network-manager ntfs-3g
+
+sleep 3
+
+echo
 echo QEMU/KVM with virt-manager
-apt install qemu qemu-kvm virt-manager libvirt-daemon
-systemctl enable libert.daemon
+echo
 
+sudo apt install qemu qemu-kvm virt-manager libvirt-daemon
+sudo systemctl enable libvirtd
+
+sleep 3
+
+echo
 echo Mate Desktop
-apt install mate-desktop-environment mate-core
+echo
 
+sudo apt install mate-desktop-environment mate-core
+
+sleep 3
+
+echo
 echo light dm
-apt install lightdm gnome-desktop
+echo
+sudo apt install lightdm
 
+sleep 3
+
+echo
 echo cifs-utils samba 
-apt install cifs-utils samba
+echo
+sudo apt install cifs-utils samba
 
+sleep 3
+
+echo
 echo arc-theme
-apt install arc-theme
+echo
+sudo apt install arc-theme
 
+sleep 3
+
+echo
 echo termite
 
 cd termite
-make
-make install
+sudo make
+sudo make install
 
-echo change the desktop environment
+echo
+echo CHANGING THE DESKTOP
+echo
 
-update-alternatives --config x-session-manager
+sudo update-alternatives --config x-session-manager
