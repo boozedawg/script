@@ -1,7 +1,5 @@
 echo initial setup
 
-deb http://archive.raspbian.org/mate stretch main
-
 sudo su
 
 apt update
