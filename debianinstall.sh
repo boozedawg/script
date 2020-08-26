@@ -1,12 +1,14 @@
-#initial setup
+echo initial setup
 
 deb http://archive.raspbian.org/mate stretch main
 
-sudo apt update
+sudo su
 
-sudo apt upgrade
+apt update
 
-sudo apt install git
+apt upgrade
+
+apt install git
 
 mkdir /setup
 
@@ -20,24 +22,33 @@ mv /setup/sh ~/.config
 
 mv /setup/termite ~/.config
 
-#install my commonly used applications
+echo install my commonly used applications
 
-sudo apt install neofetch neovim gparted openvpn network-manager
+echo neofetch neovim gparted openvpn network-manager ntfs-3g
+apt install neofetch neovim gparted openvpn network-manager ntfs-3g
 
-sudo apt install qemu qemu-kvm virt-manager libvirt-daemon
+echo QEMU/KVM with virt-manager
+apt install qemu qemu-kvm virt-manager libvirt-daemon
+systemctl enable libert.daemon
 
-sudo apt install lightdm mate-desktop-environment mate-core
+echo Mate Desktop
+apt install mate-desktop-environment mate-core
 
-sudo apt install cifs-utils samba ntfs-3g 
+echo light dm
+apt install lightdm gnome-desktop
 
-sudo apt install arc-theme
+echo cifs-utils samba 
+apt install cifs-utils samba
 
-#install termite
+echo arc-theme
+apt install arc-theme
+
+echo termite
 
 cd termite
 make
-sudo make install
+make install
 
-#change the desktop environment
+echo change the desktop environment
 
-sudo update-alternatives --config x-session-manager
+update-alternatives --config x-session-manager
