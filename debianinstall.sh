@@ -10,11 +10,19 @@ echo	llllllllllll
 echo
 echo
 
+echo update & upgrade
+sleep3
 sudo apt update
-
+echo
+sleep1
 sudo apt upgrade
-
+echo
 sudo apt install git
+echo
+sleep 3
+
+echo git cloning
+sleep 1
 
 sudo rm -r /setup
 sudo mkdir /setup
@@ -92,9 +100,13 @@ sleep 3
 echo
 echo termite
 
-cd termite
+cd /termite
 sudo make
 sudo make install
+
+sleep 3
+
+cd /home/pi/
 
 echo
 echo CHANGING THE DESKTOP
