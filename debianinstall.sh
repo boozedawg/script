@@ -10,8 +10,15 @@ echo	llllllllllll
 echo
 echo
 
+
+echo -e "username: "
+read name
+
+
+
+
 echo update & upgrade
-sleep3
+sleep 3
 sudo apt update
 echo
 sleep1
@@ -32,14 +39,14 @@ sudo git clone --recursive https://github.com/thestinger/termite.git /termite
 
 sudo git clone --recursive https://github.com/boozedawg/dotfiles.git /setup
 
-sudo mv /home/pi/.bashrc /home/pi/.bashrc2
-sudo cp /setup/.bashrc /home/pi/.bashrc
+sudo mv /home/$name/.bashrc /home/$name/.bashrc2
+sudo cp /setup/.bashrc /home/$name/.bashrc
 
-sudo rm -r /home/pi/.config/sh
-sudo mv /setup/sh /home/pi/.config/
+sudo rm -r /home/$name/.config/sh
+sudo mv /setup/sh /home/$name/.config/
 
-sudo rm -r /home/pi/.config/termite
-sudo mv /setup/termite /home/pi/.config/
+sudo rm -r /home/$name/.config/termite
+sudo mv /setup/termite /home/$name/.config/
 
 sleep 3
 
@@ -106,7 +113,7 @@ sudo make install
 
 sleep 3
 
-cd /home/pi/
+cd /home/$name/
 
 echo
 echo CHANGING THE DESKTOP
