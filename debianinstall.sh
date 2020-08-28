@@ -58,7 +58,7 @@ sleep 3
 echo
 echo
 echo INSTALLING
-echo neofetch neovim gparted openvpn network-manager ntfs-3g
+echo neofetch htop neovim gparted openvpn network-manager ntfs-3g
 echo
 echo
 
@@ -108,6 +108,9 @@ echo
 echo termite
 
 cd /termite
+sudo apt install -y build-essential
+sudo apt-get install -y g++ libgtk-3-dev gtk-doc-tools gnutls-bin valac intltool libgnutls28-dev libgirepository1.0-dev gperf libtool
+sudo apt-get install -y libglib3.0-cil-dev libxml2-utils
 sudo make
 sudo make install
 
